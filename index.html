@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#211c1d" />
+    <meta
+      name="description"
+      content="A static, mobile-first Larpantom Wallet mockup for GitHub Pages."
+    />
+    <title>Larpantom Wallet</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-app" aria-label="Larpantom Wallet mockup">
+      <section class="wallet-screen">
+        <header class="wallet-header">
+          <button class="icon-button" type="button" data-open-settings aria-label="Customize wallet">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+              <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.05.05a2.05 2.05 0 1 1-2.9 2.9l-.05-.05a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21a2.05 2.05 0 1 1-4.1 0v-.08A1.7 1.7 0 0 0 8.8 19.36a1.7 1.7 0 0 0-1.88.34l-.05.05a2.05 2.05 0 1 1-2.9-2.9l.05-.05A1.7 1.7 0 0 0 4.36 15a1.7 1.7 0 0 0-1.56-1.03H2.7a2.05 2.05 0 1 1 0-4.1h.08A1.7 1.7 0 0 0 4.34 8.8a1.7 1.7 0 0 0-.34-1.88l-.05-.05a2.05 2.05 0 1 1 2.9-2.9l.05.05a1.7 1.7 0 0 0 1.88.34h.02a1.7 1.7 0 0 0 1.03-1.56V2.7a2.05 2.05 0 1 1 4.1 0v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.05-.05a2.05 2.05 0 1 1 2.9 2.9l-.05.05a1.7 1.7 0 0 0-.34 1.88v.02a1.7 1.7 0 0 0 1.56 1.03h.1a2.05 2.05 0 1 1 0 4.1h-.1A1.7 1.7 0 0 0 19.4 15Z" />
+            </svg>
+          </button>
+
+          <button class="wallet-name" type="button" data-open-settings>
+            <span class="wallet-avatar" data-wallet-initial>B</span>
+            <span data-wallet-name>Larpantom Wallet</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <button class="icon-button qr-button" type="button" data-open-receive aria-label="Show receive code">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm11 1h2v2h-2v-2Zm3 0h2v5h-2v-5Zm-3 3h2v2h-2v-2Z" />
+            </svg>
+          </button>
+        </header>
+
+        <section class="balance-area" aria-labelledby="balance-title">
+          <h1 id="balance-title" data-balance>
+            <span class="currency-sign">$</span><span class="balance-number">106,221.02</span>
+          </h1>
+          <div class="loss-row">
+            <span data-change>-32,881.03</span>
+            <span class="loss-pill" data-percent>-21.33%</span>
+          </div>
+        </section>
+
+        <section class="action-row" aria-label="Wallet actions">
+          <button class="action-card" type="button" data-action="Send">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 3-8.8 18-2.3-7.9L3 10.1 21 3Z" />
+            </svg>
+            <span>Send</span>
+          </button>
+          <button class="action-card" type="button" data-open-receive>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4v16M4 12h16" />
+            </svg>
+            <span>Receive</span>
+          </button>
+          <button class="action-card" type="button" data-action="Buy">
+            <span class="action-symbol dollar-symbol" aria-hidden="true">$</span>
+            <span>Buy</span>
+          </button>
+        </section>
+
+        <section class="asset-list" aria-label="Assets" data-assets></section>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Wallet sections">
+        <button class="selected" type="button" aria-label="Portfolio">
+          <span></span>
+          <span class="nav-dollar" aria-hidden="true">$</span>
+        </button>
+        <button type="button" aria-label="Apps">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z" />
+          </svg>
+        </button>
+        <button type="button" aria-label="Swap">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 7h13l-4-4M17 17H4l4 4" />
+          </svg>
+        </button>
+        <button type="button" aria-label="Activity">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z" />
+          </svg>
+        </button>
+        <button type="button" aria-label="Browser">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM2 12h20M12 2c2.5 2.7 3.7 6 3.7 10S14.5 19.3 12 22c-2.5-2.7-3.7-6-3.7-10S9.5 4.7 12 2Z" />
+          </svg>
+        </button>
+      </nav>
+    </main>
+
+    <dialog class="sheet" data-receive-dialog>
+      <form method="dialog">
+        <button class="sheet-close" type="submit" aria-label="Close">×</button>
+        <p class="sheet-kicker">Receive</p>
+        <h2>Mock Address</h2>
+        <div class="receive-code" aria-hidden="true"></div>
+        <code data-address>BH_demo_9qK3...not-real</code>
+        <p>This static page is a visual mockup. It cannot receive funds.</p>
+      </form>
+    </dialog>
+
+    <dialog class="sheet settings-sheet" data-settings-dialog>
+      <form method="dialog">
+        <button class="sheet-close" type="submit" aria-label="Close">×</button>
+        <p class="sheet-kicker">Customize</p>
+        <h2>Edit Data</h2>
+      </form>
+      <form class="settings-form" data-settings-form>
+        <label>
+          Wallet name
+          <input name="walletName" type="text" autocomplete="off" />
+        </label>
+        <label>
+          Total balance
+          <input name="balance" type="text" autocomplete="off" />
+        </label>
+        <label>
+          Change amount
+          <input name="change" type="text" autocomplete="off" />
+        </label>
+        <label>
+          Change percent
+          <input name="percent" type="text" autocomplete="off" />
+        </label>
+        <label>
+          Accent color
+          <input name="accent" type="color" />
+        </label>
+        <section class="asset-editor" aria-label="Editable assets">
+          <div class="editor-heading">
+            <h3>Assets</h3>
+            <button class="plain-button small" type="button" data-add-asset>Add Asset</button>
+          </div>
+          <div class="asset-fields" data-asset-fields></div>
+        </section>
+        <div class="settings-actions">
+          <button class="save-button" type="submit">Apply</button>
+          <button class="plain-button" type="button" data-reset>Reset</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
