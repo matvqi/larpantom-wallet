@@ -1,10 +1,10 @@
 :root {
   color-scheme: dark;
-  --bg-top: #451c22;
-  --bg-mid: #211d1e;
-  --bg-bottom: #121415;
-  --card: #292b30;
-  --card-soft: #27292e;
+  --bg-top: #421b20;
+  --bg-mid: #211c1d;
+  --bg-bottom: #131515;
+  --card: #292a2f;
+  --card-soft: #292a2f;
   --text: #ffffff;
   --muted: #9b9ba1;
   --accent: #a997ff;
@@ -66,8 +66,8 @@ svg {
   margin: 0 auto;
   overflow: hidden;
   background:
-    radial-gradient(circle at 15% -10%, rgba(115, 40, 47, 0.72), transparent 22rem),
-    linear-gradient(180deg, var(--bg-top) 0, var(--bg-mid) 35%, var(--bg-bottom) 100%);
+    radial-gradient(circle at 15% -12%, rgba(105, 34, 43, 0.62), transparent 21rem),
+    linear-gradient(180deg, var(--bg-top) 0, var(--bg-mid) 38%, var(--bg-bottom) 100%);
 }
 
 .wallet-screen {
@@ -152,16 +152,17 @@ svg {
 }
 
 .balance-area {
-  padding: 46px 0 40px;
+  padding: 30px 0 16px;
   text-align: center;
 }
 
 .balance-area h1 {
   margin: 0;
-  font-size: clamp(40px, 12.2vw, 52px);
+  font-size: clamp(39px, 10.9vw, 47px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
@@ -170,18 +171,19 @@ svg {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 19px;
   color: var(--negative);
-  font-size: clamp(24px, 7.3vw, 34px);
+  font-size: clamp(22px, 6.45vw, 28px);
   font-weight: 800;
   letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .loss-pill {
   display: inline-flex;
   align-items: center;
-  min-height: 43px;
-  padding: 0 15px;
+  min-height: 35px;
+  padding: 0 14px;
   border-radius: 8px;
   background: rgba(106, 35, 43, 0.62);
 }
@@ -190,14 +192,14 @@ svg {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  margin-bottom: 39px;
+  margin-bottom: 37px;
 }
 
 .action-card {
   display: grid;
   place-items: center;
   gap: 10px;
-  min-height: 95px;
+  min-height: 86px;
   border-radius: 20px;
   color: var(--muted);
   background: var(--card-soft);
@@ -205,15 +207,20 @@ svg {
 }
 
 .action-card svg {
-  width: 47px;
-  height: 47px;
+  width: 40px;
+  height: 40px;
   color: var(--accent);
   stroke-width: 1.8;
 }
 
-.action-card .dollar-icon {
+.action-card:nth-child(2) svg {
   width: 47px;
   height: 47px;
+}
+
+.action-card .dollar-icon {
+  width: 42px;
+  height: 42px;
   stroke-width: 1.8;
   transform: none;
 }
@@ -225,16 +232,16 @@ svg {
 
 .asset-list {
   display: grid;
-  gap: 11px;
+  gap: 10px;
 }
 
 .asset-card {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr) auto;
+  grid-template-columns: 67px minmax(0, 1fr) minmax(108px, auto);
   align-items: center;
-  gap: 14px;
-  min-height: 89px;
-  padding: 15px 22px 15px 15px;
+  gap: 12px;
+  min-height: 82px;
+  padding: 13px 18px 13px 14px;
   border-radius: 20px;
   background: var(--card);
   box-shadow: var(--shadow);
@@ -244,8 +251,8 @@ svg {
   position: relative;
   display: grid;
   place-items: center;
-  width: 61px;
-  height: 61px;
+  width: 57px;
+  height: 57px;
   border-radius: 50%;
   overflow: visible;
   color: #fff;
@@ -265,8 +272,8 @@ svg {
 }
 
 .token-logo.solana span {
-  width: 36px;
-  height: 8px;
+  width: 34px;
+  height: 7px;
   border-radius: 99px;
   transform: skewX(-22deg);
   background: linear-gradient(90deg, #8b5cff, #19f5aa);
@@ -375,7 +382,7 @@ svg {
 
 .asset-copy h2 {
   margin: 0 0 4px;
-  font-size: clamp(23px, 6.4vw, 32px);
+  font-size: clamp(20px, 5.35vw, 26px);
   font-weight: 810;
   line-height: 1.05;
 }
@@ -383,7 +390,7 @@ svg {
 .asset-copy p {
   margin: 0;
   color: var(--muted);
-  font-size: clamp(19px, 5.1vw, 28px);
+  font-size: clamp(17px, 4.55vw, 22px);
   font-weight: 450;
   letter-spacing: -0.02em;
 }
@@ -392,19 +399,21 @@ svg {
   display: grid;
   justify-items: end;
   gap: 5px;
-  min-width: 96px;
+  min-width: 108px;
 }
 
 .asset-value strong {
-  max-width: 135px;
-  font-size: clamp(21px, 5.6vw, 29px);
+  max-width: 155px;
+  font-size: clamp(19px, 5.05vw, 25px);
   font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 .asset-value span {
-  max-width: 135px;
-  font-size: clamp(19px, 5.1vw, 27px);
+  max-width: 155px;
+  font-size: clamp(17px, 4.55vw, 23px);
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 
 .positive {
@@ -428,7 +437,7 @@ svg {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: min(100vw, 480px);
-  height: calc(94px + env(safe-area-inset-bottom));
+  height: calc(91px + env(safe-area-inset-bottom));
   margin: 0 auto;
   padding: 0 21px env(safe-area-inset-bottom);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
@@ -473,26 +482,9 @@ svg {
 
 .bottom-nav svg {
   position: relative;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   stroke-width: 2.2;
-}
-
-.nav-dollar {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  color: #151515;
-  background: #fff;
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0;
-  text-align: center;
-  transform: translateY(-1px);
 }
 
 .sheet {
@@ -714,13 +706,18 @@ select {
   }
 
   .asset-card {
-    grid-template-columns: 61px minmax(0, 1fr) auto;
+    grid-template-columns: 61px minmax(0, 1fr) minmax(94px, auto);
     gap: 10px;
     padding-right: 14px;
   }
 
   .asset-value {
-    min-width: 78px;
+    min-width: 94px;
+  }
+
+  .asset-value strong,
+  .asset-value span {
+    max-width: 112px;
   }
 }
 

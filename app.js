@@ -3,6 +3,28 @@ const clone = (value) => JSON.parse(JSON.stringify(value));
 const defaults = clone(window.WALLET_CONFIG);
 const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
 let config = saved ? { ...defaults, ...saved } : defaults;
+const defaultAssetsByName = new Map(defaults.assets.map((asset) => [asset.name, asset]));
+let migratedSavedAssets = false;
+
+config.assets = config.assets.map((asset) => {
+  const defaultAsset = defaultAssetsByName.get(asset.name);
+
+  if (!defaultAsset || asset.image) {
+    return asset;
+  }
+
+  migratedSavedAssets = true;
+  return {
+    ...asset,
+    logo: defaultAsset.logo,
+    image: defaultAsset.image,
+    badge: defaultAsset.badge
+  };
+});
+
+if (migratedSavedAssets) {
+  localStorage.setItem(storageKey, JSON.stringify(config));
+}
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const assetsRoot = $("[data-assets]");

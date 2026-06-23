@@ -13,7 +13,8 @@ window.WALLET_CONFIG = {
       value: "$99,021.02",
       delta: "+$1.08",
       deltaType: "positive",
-      logo: "solana"
+      logo: "image",
+      image: "assets/solana-ref.png"
     },
     {
       name: "HULVIN",
@@ -21,8 +22,8 @@ window.WALLET_CONFIG = {
       value: "$397.11",
       delta: "+4101.00",
       deltaType: "positive",
-      logo: "hulvin",
-      badge: true
+      logo: "image",
+      image: "assets/hulvin-ref.png"
     },
     {
       name: "USDT",
@@ -30,8 +31,8 @@ window.WALLET_CONFIG = {
       value: "$2.53",
       delta: "-<$0.01",
       deltaType: "negative",
-      logo: "usdt",
-      badge: true
+      logo: "image",
+      image: "assets/usdt-ref.png"
     },
     {
       name: "Setosi Nekamuto",
@@ -39,8 +40,8 @@ window.WALLET_CONFIG = {
       value: "$122.22",
       delta: "+2336.02",
       deltaType: "positive",
-      logo: "setosi",
-      badge: true
+      logo: "image",
+      image: "assets/setosi-ref.png"
     },
     {
       name: "Polygon",
@@ -48,7 +49,8 @@ window.WALLET_CONFIG = {
       value: "$0.00",
       delta: "$0.00",
       deltaType: "neutral",
-      logo: "polygon"
+      logo: "image",
+      image: "assets/polygon-ref.png"
     }
   ]
 };
