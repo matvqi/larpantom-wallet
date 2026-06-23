@@ -75,7 +75,7 @@ svg {
   height: 100svh;
   overflow-y: auto;
   padding:
-    max(42px, calc(env(safe-area-inset-top) + 22px))
+    max(56px, calc(env(safe-area-inset-top) + 36px))
     19px
     calc(116px + env(safe-area-inset-bottom));
   scrollbar-width: thin;
@@ -152,30 +152,17 @@ svg {
 }
 
 .balance-area {
-  padding: 51px 0 42px;
+  padding: 46px 0 40px;
   text-align: center;
 }
 
 .balance-area h1 {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
   margin: 0;
-  font-size: clamp(54px, 17.5vw, 78px);
+  font-size: clamp(40px, 12.2vw, 52px);
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-}
-
-.currency-sign {
-  display: inline-block;
-  margin-right: 0.05em;
+  line-height: 1;
   letter-spacing: 0;
-  transform: translateY(-0.055em);
-}
-
-.balance-number {
-  display: inline-block;
+  white-space: nowrap;
 }
 
 .loss-row {
@@ -218,35 +205,22 @@ svg {
 }
 
 .action-card svg {
-  width: 39px;
-  height: 39px;
+  width: 47px;
+  height: 47px;
   color: var(--accent);
   stroke-width: 1.8;
 }
 
-.action-symbol {
-  display: grid;
-  place-items: center;
+.action-card .dollar-icon {
   width: 47px;
   height: 47px;
-  color: var(--accent);
-  font-size: 45px;
-  font-weight: 520;
-  line-height: 1;
-}
-
-.action-card:nth-child(2) svg {
-  width: 47px;
-  height: 47px;
+  stroke-width: 1.8;
+  transform: none;
 }
 
 .action-card span {
   font-size: 18px;
   font-weight: 760;
-}
-
-.action-card .dollar-symbol {
-  font-size: 45px;
 }
 
 .asset-list {
@@ -518,6 +492,7 @@ svg {
   line-height: 1;
   letter-spacing: 0;
   text-align: center;
+  transform: translateY(-1px);
 }
 
 .sheet {

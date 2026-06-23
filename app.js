@@ -44,20 +44,11 @@ const blankAsset = () => ({
 
 const getAssetInput = (field, name) => field.querySelector(`[name="${name}"]`);
 
-function balanceMarkup(value) {
-  const trimmedValue = String(value || "").trim();
-  if (trimmedValue.startsWith("$")) {
-    return `<span class="currency-sign">$</span><span class="balance-number">${escapeHtml(trimmedValue.slice(1))}</span>`;
-  }
-
-  return `<span class="balance-number">${escapeHtml(trimmedValue)}</span>`;
-}
-
 function render() {
   document.documentElement.style.setProperty("--accent", config.accent);
   $("[data-wallet-name]").textContent = config.walletName;
   $("[data-wallet-initial]").textContent = config.walletInitial || config.walletName.charAt(0);
-  $("[data-balance]").innerHTML = balanceMarkup(config.balance);
+  $("[data-balance]").textContent = config.balance;
   $("[data-change]").textContent = config.change;
   $("[data-percent]").textContent = config.percent;
   $("[data-address]").textContent = config.receiveAddress;
@@ -150,6 +141,37 @@ function renderAssetEditor() {
     .join("");
 }
 
+function readSettingsForm() {
+  const walletName = settingsForm.walletName.value.trim() || defaults.walletName;
+  const assets = [...assetFields.querySelectorAll(".asset-edit")].map((field) => ({
+    name: getAssetInput(field, "name").value.trim() || "Asset",
+    amount: getAssetInput(field, "amount").value.trim(),
+    value: getAssetInput(field, "value").value.trim(),
+    delta: getAssetInput(field, "delta").value.trim(),
+    deltaType: getAssetInput(field, "deltaType").value,
+    logo: getAssetInput(field, "logo").value,
+    image: getAssetInput(field, "image").value.trim(),
+    badge: getAssetInput(field, "badge").checked
+  }));
+
+  return {
+    ...config,
+    walletName,
+    walletInitial: walletName.charAt(0),
+    balance: settingsForm.balance.value.trim() || defaults.balance,
+    change: settingsForm.change.value.trim() || defaults.change,
+    percent: settingsForm.percent.value.trim() || defaults.percent,
+    accent: settingsForm.accent.value,
+    assets
+  };
+}
+
+function saveCurrentSettings() {
+  config = readSettingsForm();
+  localStorage.setItem(storageKey, JSON.stringify(config));
+  render();
+}
+
 function openDialog(dialog) {
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
@@ -179,37 +201,19 @@ document.querySelectorAll("[data-open-receive]").forEach((button) => {
 
 settingsForm.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const walletName = settingsForm.walletName.value.trim() || defaults.walletName;
-  const assets = [...assetFields.querySelectorAll(".asset-edit")].map((field) => ({
-    name: getAssetInput(field, "name").value.trim() || "Asset",
-    amount: getAssetInput(field, "amount").value.trim(),
-    value: getAssetInput(field, "value").value.trim(),
-    delta: getAssetInput(field, "delta").value.trim(),
-    deltaType: getAssetInput(field, "deltaType").value,
-    logo: getAssetInput(field, "logo").value,
-    image: getAssetInput(field, "image").value.trim(),
-    badge: getAssetInput(field, "badge").checked
-  }));
-
-  config = {
-    ...config,
-    walletName,
-    walletInitial: walletName.charAt(0),
-    balance: settingsForm.balance.value.trim() || defaults.balance,
-    change: settingsForm.change.value.trim() || defaults.change,
-    percent: settingsForm.percent.value.trim() || defaults.percent,
-    accent: settingsForm.accent.value,
-    assets
-  };
-  localStorage.setItem(storageKey, JSON.stringify(config));
-  render();
+  saveCurrentSettings();
   closeDialog(settingsDialog);
 });
 
+settingsForm.addEventListener("input", saveCurrentSettings);
+settingsForm.addEventListener("change", saveCurrentSettings);
+
 $("[data-add-asset]").addEventListener("click", () => {
+  saveCurrentSettings();
   config.assets = [...config.assets, blankAsset()];
   renderAssetEditor();
+  localStorage.setItem(storageKey, JSON.stringify(config));
+  render();
   if (assetFields.lastElementChild) {
     assetFields.lastElementChild.scrollIntoView({ behavior: "smooth", block: "center" });
   }
@@ -222,14 +226,18 @@ assetFields.addEventListener("click", (event) => {
 
   const field = event.target.closest(".asset-edit");
   const index = Number(field.dataset.index);
+  saveCurrentSettings();
   config.assets = config.assets.filter((_, assetIndex) => assetIndex !== index);
   renderAssetEditor();
+  localStorage.setItem(storageKey, JSON.stringify(config));
+  render();
 });
 
 $("[data-reset]").addEventListener("click", () => {
   localStorage.removeItem(storageKey);
   config = clone(defaults);
   fillSettingsForm();
+  localStorage.setItem(storageKey, JSON.stringify(config));
   render();
 });
 
