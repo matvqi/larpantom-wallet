@@ -1,6 +1,7 @@
 window.WALLET_CONFIG = {
   walletName: "Larpantom Wallet",
   walletInitial: "L",
+  walletIcon: "assets/larpantom-icon.png",
   balance: "$106,221.02",
   change: "-32,881.03",
   percent: "-21.33%",

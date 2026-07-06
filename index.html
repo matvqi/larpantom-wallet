@@ -4,12 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#211c1d" />
+    <meta name="apple-mobile-web-app-title" content="Larpantom Wallet" />
     <meta
       name="description"
       content="A static, mobile-first Larpantom Wallet mockup for GitHub Pages."
     />
     <title>Larpantom Wallet</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="assets/larpantom-icon.png?v=20260706" />
+    <link rel="apple-touch-icon" href="assets/larpantom-icon.png?v=20260706" />
+    <link rel="manifest" href="site.webmanifest?v=20260706" />
+    <link rel="stylesheet" href="styles.css?v=20260706-icon" />
   </head>
   <body>
     <main class="phone-app" aria-label="Larpantom Wallet mockup">
@@ -23,7 +27,10 @@
           </button>
 
           <button class="wallet-name" type="button" data-open-settings>
-            <span class="wallet-avatar" data-wallet-initial>L</span>
+            <span class="wallet-avatar">
+              <img data-wallet-icon src="assets/larpantom-icon.png" alt="" />
+              <span data-wallet-initial hidden>L</span>
+            </span>
             <span data-wallet-name>Larpantom Wallet</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="m6 9 6 6 6-6" />
@@ -123,6 +130,10 @@
           <input name="walletName" type="text" autocomplete="off" />
         </label>
         <label>
+          Wallet icon URL/path
+          <input name="walletIcon" type="text" autocomplete="off" placeholder="assets/larpantom-icon.png" />
+        </label>
+        <label>
           Total balance
           <input name="balance" type="text" autocomplete="off" />
         </label>
@@ -152,7 +163,7 @@
       </form>
     </dialog>
 
-    <script src="config.js?v=20260623-reference-pass"></script>
-    <script src="app.js?v=20260623-reference-pass"></script>
+    <script src="config.js?v=20260706-icon"></script>
+    <script src="app.js?v=20260706-icon"></script>
   </body>
 </html>

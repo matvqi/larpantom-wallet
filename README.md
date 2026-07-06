@@ -4,7 +4,7 @@ Static GitHub Pages wallet mockup built mainly for iPhone Safari. It has no buil
 
 ## Customize
 
-- Edit `config.js` to change the default wallet name, balance, accent color, receive address, and assets.
+- Edit `config.js` to change the default wallet name, icon, balance, accent color, receive address, and assets.
 - Or open the site, tap the gear, and edit the regular fields. Changes are applied immediately and saved in the browser with `localStorage`.
 - Asset logos can use the built-in values `solana`, `hulvin`, `usdt`, `setosi`, or `polygon`. You can also add an `image` URL/path to any asset object.
 

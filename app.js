@@ -32,6 +32,8 @@ const settingsDialog = $("[data-settings-dialog]");
 const receiveDialog = $("[data-receive-dialog]");
 const settingsForm = $("[data-settings-form]");
 const assetFields = $("[data-asset-fields]");
+const walletIcon = $("[data-wallet-icon]");
+const walletInitial = $("[data-wallet-initial]");
 
 const logoMarkup = {
   solana: '<span></span><span></span><span></span>',
@@ -69,7 +71,10 @@ const getAssetInput = (field, name) => field.querySelector(`[name="${name}"]`);
 function render() {
   document.documentElement.style.setProperty("--accent", config.accent);
   $("[data-wallet-name]").textContent = config.walletName;
-  $("[data-wallet-initial]").textContent = config.walletInitial || config.walletName.charAt(0);
+  walletInitial.textContent = config.walletInitial || config.walletName.charAt(0);
+  walletIcon.hidden = false;
+  walletInitial.hidden = true;
+  walletIcon.src = config.walletIcon || defaults.walletIcon;
   $("[data-balance]").textContent = config.balance;
   $("[data-change]").textContent = config.change;
   $("[data-percent]").textContent = config.percent;
@@ -103,6 +108,7 @@ function render() {
 
 function fillSettingsForm() {
   settingsForm.walletName.value = config.walletName;
+  settingsForm.walletIcon.value = config.walletIcon || defaults.walletIcon;
   settingsForm.balance.value = config.balance;
   settingsForm.change.value = config.change;
   settingsForm.percent.value = config.percent;
@@ -180,6 +186,7 @@ function readSettingsForm() {
     ...config,
     walletName,
     walletInitial: walletName.charAt(0),
+    walletIcon: settingsForm.walletIcon.value.trim() || defaults.walletIcon,
     balance: settingsForm.balance.value.trim() || defaults.balance,
     change: settingsForm.change.value.trim() || defaults.change,
     percent: settingsForm.percent.value.trim() || defaults.percent,
@@ -187,6 +194,16 @@ function readSettingsForm() {
     assets
   };
 }
+
+walletIcon.addEventListener("error", () => {
+  if (walletIcon.getAttribute("src") !== defaults.walletIcon) {
+    walletIcon.src = defaults.walletIcon;
+    return;
+  }
+
+  walletIcon.hidden = true;
+  walletInitial.hidden = false;
+});
 
 function saveCurrentSettings() {
   config = readSettingsForm();

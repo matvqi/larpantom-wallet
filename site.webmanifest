@@ -1,0 +1,16 @@
+{
+  "name": "Larpantom Wallet",
+  "short_name": "Larpantom",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#131515",
+  "theme_color": "#421b20",
+  "icons": [
+    {
+      "src": "assets/larpantom-icon.png",
+      "sizes": "1200x1200",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
