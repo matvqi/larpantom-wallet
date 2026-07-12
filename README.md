@@ -2,6 +2,7 @@
 
 Static GitHub Pages wallet mockup built mainly for iPhone Safari. It has no build step and no dependencies.  https://matvqi.github.io/larpantom-wallet/
 
+<<<<<<< HEAD
 ## Customize
 
 - Edit `config.js` to change the default wallet name, icon, balance, accent color, receive address, and assets.
@@ -17,3 +18,5 @@ Static GitHub Pages wallet mockup built mainly for iPhone Safari. It has no buil
 5. Select `main` and `/root`, then save.
 
 GitHub Pages will serve the site after the deployment finishes.
+=======
+>>>>>>> 40688c15a025991d7e79b7037b1c5eb5683755a6
