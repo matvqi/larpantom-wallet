@@ -448,9 +448,9 @@ svg {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: min(100vw, 480px);
-  height: calc(91px + env(safe-area-inset-bottom));
+  height: 82px;
   margin: 0 auto;
-  padding: 0 21px env(safe-area-inset-bottom);
+  padding: 0 21px;
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   background: var(--nav);
   backdrop-filter: blur(22px);
@@ -473,7 +473,7 @@ svg {
   position: relative;
   display: grid;
   place-items: center;
-  transform: translateY(6px);
+  transform: translateY(12px);
   background: transparent;
   color: rgba(255, 255, 255, 0.58);
 }
